@@ -46,6 +46,11 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'flc_main_app',
+    # 'jet',
+    # 'jet.dashboard',
+    # 'tailwind',
+    # 'flc_main_app_theme',
+    # 'django_browser_reload',
 ]
 
 MIDDLEWARE = [
@@ -134,3 +139,12 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# TAILWIND_APP_NAME = 'flc_main_app_theme'
+# INTERNAL_IPS = [
+#     "127.0.0.1",
+# ]
+# NPM_BIN_PATH = r"C:\Program Files\nodejs\npm.cmd"
+
+LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = '/about/'

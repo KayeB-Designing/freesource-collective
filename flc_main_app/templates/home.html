@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Freesource Library Collective</title>
+    </head>
+    <body>
+        {% extends 'base.html' %}
+
+{% comment %} for head title tags and helping us with SEO {% endcomment %}
+{% block title %}Resources{% endblock  %}
+
+{% block content %}
+
+<h1>Resources</h1>
+{% if user.is_authenticated %}
+    <div>
+        <a href="{% url 'resource_create' %}">Add Resource</a>
+    </div>
+{% else %}
+    <div>
+        Log in to add new resources!
+    </div>
+{% endif %}
+<div>
+  {% for resource in resources %}
+  <a href="">
+    <div>
+      <div>
+        <figure>
+          <img src="{{resource.image}}" alt="{{resource.name}}" />
+        </figure>
+      </div>
+      <div>
+        <p>{{resource.name}}</p>
+      </div>
+    </div>
+  </a>
+	{% empty %}
+  <article>
+    <div>
+      <p>No Resources Available</p>
+    </div>
+  </article>
+  {% endfor %}
+</div>
+{% endblock %}
+    </body>
+</html>
