@@ -9,42 +9,128 @@
     <body>
         {% extends 'base.html' %}
 
-{% comment %} for head title tags and helping us with SEO {% endcomment %}
-{% block title %}Resources{% endblock  %}
+        {% block title %}Resources{% endblock  %}
 
-{% block content %}
+        {% block content %}
 
-<h1>Resources</h1>
-{% if user.is_authenticated %}
-    <div>
-        <a href="{% url 'resource_create' %}">Add Resource</a>
-    </div>
-{% else %}
-    <div>
-        Log in to add new resources!
-    </div>
-{% endif %}
-<div>
-  {% for resource in resources %}
-  <a href="">
-    <div>
-      <div>
-        <figure>
-          <img src="{{resource.image}}" alt="{{resource.name}}" />
-        </figure>
-      </div>
-      <div>
-        <p>{{resource.name}}</p>
-      </div>
-    </div>
-  </a>
-	{% empty %}
-  <article>
-    <div>
-      <p>No Resources Available</p>
-    </div>
-  </article>
-  {% endfor %}
+        <h1>Resources</h1>
+        <div>
+            
+            
+            {% for resource in resources %}
+                {% if resource.general_pers_dev %}
+                <div>
+                    <span>
+                        <i class="fas fa-check-circle"></i>
+                    </span>
+                    <span>This resource is a general Personal Developement topic.</span>
+                </div>
+                    <a href="{% url 'resource_detail' resource.pk %}">
+                        <div>
+                            <div>
+                                <figure>
+                                    <img src="{{resource.image}}" alt="{{resource.name}}" />
+                                </figure>
+                            </div>
+                        </div>
+                        <div>
+                            <h2>{{resource.name}}</h2>
+                        </div>
+                    </a>
+                {% endif %}
+            
+                {% if resource.habit_building == True %}
+                <div>
+                    <span>
+                        <i class="fas fa-check-circle"></i>
+                    </span>
+                    <span>This is a Habit Building topic.</span>
+                </div>
+                    <a href="{% url 'resource_detail' resource.pk %}">
+                        <div>
+                            <div>
+                                <figure>
+                                    <img src="{{resource.image}}" alt="{{resource.name}}" />
+                                </figure>
+                            </div>
+                        </div>
+                        <div>
+                            <h2>{{resource.name}}</h2>
+                        </div>
+                    </a> 
+                {% endif %}
+            
+                {% if resource.goal_setting == True %}
+                <div>
+                    <span>
+                        <i class="fas fa-check-circle"></i>
+                    </span>
+                    <span>This is a Goal Setting topic.</span>
+                </div>
+                    <a href="{% url 'resource_detail' resource.pk %}">
+                        <div>
+                            <div>
+                                <figure>
+                                    <img src="{{resource.image}}" alt="{{resource.name}}" />
+                                </figure>
+                            </div>
+                        </div>
+                        <div>
+                            <h2>{{resource.name}}</h2>
+                        </div>
+                    </a>  
+                {% endif %}
+            
+                {% if resource.time_management == True %}
+                <div>
+                    <span>
+                        <i class="fas fa-check-circle"></i>
+                    </span>
+                    <span>This is a Time Management topic.</span>
+                </div>
+                    <a href="{% url 'resource_detail' resource.pk %}">
+                        <div>
+                            <div>
+                                <figure>
+                                    <img src="{{resource.image}}" alt="{{resource.name}}" />
+                                </figure>
+                            </div>
+                        </div>
+                        <div>
+                            <h2>{{resource.name}}</h2>
+                        </div>
+                    </a>  
+                {% endif %}
+            
+                {% if resource.growth_mindset == True %}
+                <div>
+                    <span>
+                        <i class="fas fa-check-circle"></i>
+                    </span>
+                    <span>This is a Growth Mindset topic.</span>
+                </div>
+                    <a href="{% url 'resource_detail' resource.pk %}">
+                        <div>
+                            <div>
+                                <figure>
+                                    <img src="{{resource.image}}" alt="{{resource.name}}" />
+                                </figure>
+                            </div>
+                        </div>
+                        <div>
+                            <h2>{{resource.name}}</h2>
+                        </div>
+                    </a> 
+                {% endif %}
+                {% empty %}
+                    <article>
+                        <div>
+                            <p>No Resources Available</p>
+                        </div>
+                    </article>
+            {% endfor %}
+
+
 </div>
 {% endblock %}
     </body>

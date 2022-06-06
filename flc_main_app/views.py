@@ -19,14 +19,6 @@ class Home(TemplateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context["resources"] = Resource.objects.all()
-        # name = self.request.GET.get("name")
-        # if name != None:
-        #     context["resources"] = Resource.objects.filter(
-        #         name__icontains=name, user=self.request.user)
-        #     context["header"] = f"Searching for {name}"
-        # else:
-        #     context["resources"] = Resource.objects.filter(user=self.request.user)
-        #     context["header"] = "Resources"
         return context
 
 class About(TemplateView):
@@ -62,7 +54,7 @@ class ResourceList(TemplateView):
 @method_decorator(login_required, name='dispatch')
 class ResourceCreate(CreateView):
     model = Resource
-    fields = ['name', 'image']
+    fields = ['name', 'image', 'link', 'habit_building', 'goal_setting', 'time_management', 'growth_mindset', 'general_pers_dev', 'type_book', 'type_video', 'type_podcast', 'type_worksheet', 'type_article', 'type_other']
     template_name = "resource_create.html"
     success_url = "/"
 
@@ -82,7 +74,7 @@ class ResourceDetail(DetailView):
 @method_decorator(login_required, name='dispatch')
 class ResourceUpdate(UpdateView):
     model = Resource
-    fields = ['name', 'image']
+    fields = ['name', 'image', 'link', 'habit_building', 'goal_setting', 'time_management', 'growth_mindset', 'general_pers_dev', 'type_book', 'type_video', 'type_podcast', 'type_worksheet', 'type_article', 'type_other']
     template_name = "resource_update.html"
     success_url = "/resources/"
     def get_success_url(self):

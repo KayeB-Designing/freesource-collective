@@ -4,7 +4,7 @@
     {% csrf_token %}
     <div>
     <!-- confirm resource delete -->
-        <inputtype="submit" value="Confirm" />
+        <input type="submit" value="Confirm" />
         <!-- Redirect back to detail on cancel -->
         <a href="{% url 'resource_detail' resource.pk %}">Cancel</a>
     </div>
