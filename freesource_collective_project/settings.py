@@ -145,3 +145,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 #     "127.0.0.1",
 # ]
 # NPM_BIN_PATH = r"C:\Program Files\nodejs\npm.cmd"
+
+LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = '/about/'

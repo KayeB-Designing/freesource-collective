@@ -15,6 +15,15 @@
 {% block content %}
 
 <h1>Resources</h1>
+{% if user.is_authenticated %}
+    <div>
+        <a href="{% url 'resource_create' %}">Add Resource</a>
+    </div>
+{% else %}
+    <div>
+        Log in to add new resources!
+    </div>
+{% endif %}
 <div>
   {% for resource in resources %}
   <a href="">
