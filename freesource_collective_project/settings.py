@@ -11,6 +11,14 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 
 from pathlib import Path
+from dotenv import load_dotenv
+import os
+load_dotenv()  # loads the configs from .env
+
+SECRET_KEY = str(os.getenv('SECRET_KEY'))
+DATABASE_NAME = str(os.getenv('DATABASE_NAME'))
+POST_GRES = str(os.getenv('POST_GRES'))
+PG_KEY = str(os.getenv('PG_KEY'))
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -20,7 +28,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-x2+w*r9nc3i0oz_q%&fs(q!^k=4o-)^(*x&cq82q%&85&xebs&'
+SECRET_KEY = SECRET_KEY
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -76,8 +84,12 @@ WSGI_APPLICATION = 'freesource_collective_project.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': DATABASE_NAME,
+        'USER': POST_GRES,
+        'PASSWORD': PG_KEY,
+        'HOST': '127.0.0.1',
+        'PORT': '5432',
     }
 }
 
