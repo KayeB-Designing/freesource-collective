@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% comment %} for head title tags and helping us with SEO {% endcomment %}
+{% block title %}Artist{% endblock  %}
+
+{% block content %}
+
+<h1>Resources</h1>
+<div>
+  {% for list in lists %}
+  <a href="">
+    <div>
+      <div>
+        <figure>
+          <img src="{{list.image}}" alt="{{list.name}}" />
+        </figure>
+      </div>
+      <div>
+        <p>{{list.name}}</p>
+      </div>
+    </div>
+  </a>
+	{% empty %}
+  <article>
+    <div>
+      <p>No Lists Available</p>
+    </div>
+  </article>
+  {% endfor %}
+</div>
+{% endblock %}
