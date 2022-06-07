@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.views import View
 from django.http import HttpResponse
 from django.views.generic.base import TemplateView
-from .models import Resource
+from .models import Resource, Comment
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic import DetailView
 from django.urls import reverse
@@ -10,7 +10,7 @@ from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
-
+from django.contrib.auth.models import User
 
 class Home(TemplateView):
 
@@ -70,6 +70,11 @@ class ResourceCreate(CreateView):
 class ResourceDetail(DetailView):
     model = Resource
     template_name = "resource_detail.html"
+    # def get_context_data(self, **kwargs):
+    #     context = super().get_context_data(**kwargs)
+    #     context["comments"] = Comment.objects.all()
+    #     context["resources"] = Resource.objects.all()
+
 
 @method_decorator(login_required, name='dispatch')
 class ResourceUpdate(UpdateView):
@@ -102,3 +107,24 @@ class Register(View):
         else:
             context = {"form": form}
             return render(request, "registration/register.html", context)
+
+class CommentCreate(View):
+
+    def post(self, request, pk):
+        resource = Resource.objects.get(pk=pk)
+        authorID = self.request.user
+        body = request.POST.get("body")
+        Comment.objects.create( authorID=authorID, resource=resource, body=body)
+        return redirect('resource_detail', pk=pk)
+
+class CommentUpdate(UpdateView):
+    model = Comment
+    fields = ['comment_text']
+    template_name = "comment_update.html"
+    def get_success_url(self):
+        return reverse('/resources/<int:pk>/', kwargs={'pk': self.object.pk})
+
+class CommentDelete(DeleteView):
+    model = Comment
+    template_name = "comment_delete_confirmation.html"
+    success_url = "/resources/<int:pk>/"

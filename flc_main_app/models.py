@@ -25,3 +25,13 @@ class Resource(models.Model):
 
     class Meta:
         ordering = ['name']
+
+class Comment(models.Model):
+
+    resource = models.ForeignKey(Resource, on_delete=models.CASCADE, related_name="comments")
+    authorID = models.ForeignKey(User, on_delete=models.CASCADE, related_name="comments")
+    created_at = models.DateTimeField(auto_now_add=True)
+    body = models.TextField(max_length=500)
+
+    def __str__(self):
+        return self.body

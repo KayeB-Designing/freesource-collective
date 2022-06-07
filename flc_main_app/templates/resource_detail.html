@@ -102,23 +102,65 @@
     </div>
     {% endif %}
 </div>
-<!-- <div>
+<br>
+<hr>
+<br>
+{% if user.is_authenticated %}
+    </div>
+    <h2>Add a comment!</h2>
+    <br>
+    <form action="{% url 'comment_create' resource.pk %}" method="post">
+        {% csrf_token %}
+        <div>
+            <div>
+                <input
+                    class="input"
+                    type="text"
+                    name="body"
+                    placeholder="What do you think?"
+                    required
+                />
+            </div>
+            <div class="control">
+                <input type="submit" value="Add Comment" />
+            </div>
+        </div>
+    </form>
     <div>
-        <a href="{% url 'resource_update' resource.pk %}">
-            <span>
-                <i class="fas fa-edit"></i>
-            </span>
-        </a>
-        <a href="{% url 'resource_delete' resource.pk %}">
-            <span>
-                <i class="fas fa-trash-alt"></i>
-            </span>
-        </a>
-    </div> -->
-    <!-- <div class="detail__about">
-        <h4 class="title is-4">About</h4>
-        <p>{{resource.bio}}</p>
-    </div> -->
+    <hr>
+    {% for comment in resource.comments.all %}
+        <div>
+            <div>
+                <h3>{{comment.authorID}}</h3>
+                <span>{{comment.created_at}}</span>
+            </div>
+            <div>
+                {{comment.body}}
+            </div>
+        </div>
+        <br>
+        <br>
+        {% empty %}
+        <p>
+            No comments available.
+        </p>
+    {% endfor %}
+{% else %}
+    {% for comment in resource.comments.all %}
+    <div>
+        <div>
+            <h3>{{comment.authorID}}</h3>
+            <span>{{comment.created_at}}</span>
+        </div>
+        <div>
+            {{comment.body}}
+        </div>
+    </div>
+    {% empty %}
+    <p>
+        No comments available.
+    </p>
+    {% endfor %}
+{% endif %}
 </div>
-
 {% endblock %}

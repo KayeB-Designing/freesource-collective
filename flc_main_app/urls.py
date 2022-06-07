@@ -11,4 +11,5 @@ urlpatterns = [
     path('resources/<int:pk>/', views.ResourceDetail.as_view(), name="resource_detail"),
     path('resources/<int:pk>/update',views.ResourceUpdate.as_view(), name="resource_update"),
     path('resources/<int:pk>/delete',views.ResourceDelete.as_view(), name="resource_delete"),
+    path('resources/<int:pk>/comments/new/', views.CommentCreate.as_view(), name="comment_create")
 ]
