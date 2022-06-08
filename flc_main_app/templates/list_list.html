@@ -1,14 +1,15 @@
 {% extends 'base.html' %}
 
 {% comment %} for head title tags and helping us with SEO {% endcomment %}
-{% block title %}Artist{% endblock  %}
+{% block title %}Resource Lists{% endblock  %}
 
 {% block content %}
 
 <h1>Resources</h1>
+<a href="{% url 'list_create' %}">Add New List</a>
 <div>
   {% for list in lists %}
-  <a href="">
+  <a href="{% url 'list_detail' list.pk %}">
     <div>
       <div>
         <figure>

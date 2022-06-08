@@ -35,3 +35,21 @@ class Comment(models.Model):
 
     def __str__(self):
         return self.body
+
+class Resourcelist(models.Model):
+    creator = models.ForeignKey(User, on_delete=models.CASCADE, related_name="lists")
+    name = models.CharField(max_length=150)
+    image = models.CharField(max_length=250)
+    resources = models.ManyToManyField(Resource)
+    fav_list = models.BooleanField(default=False)
+    habit_building = models.BooleanField(default=False)
+    goal_setting = models.BooleanField(default=False)
+    time_management = models.BooleanField(default=False)
+    growth_mindset = models.BooleanField(default=False)
+    general_pers_dev = models.BooleanField(default=False)
+
+    def __str__(self):
+        return self.name
+    class Meta:
+        ordering = ['name']
+

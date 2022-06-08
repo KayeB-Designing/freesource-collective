@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>Freesource Library Collective Resource Lists</h1>
+<br>
+<hr>
+<h2>Resource List: <span>{{resourcelist.name}}</span></h2>
+<figure>
+    <img src="{{resourcelist.image}}" alt="{{resourcelist.name}}" />
+</figure>
+<div>
+    <a href="{% url 'list_update' resourcelist.pk %}">
+        <span>
+            <i class="fas fa-edit"></i>
+        </span>
+    </a>
+    <a href="{% url 'list_delete' resourcelist.pk %}">
+        <span>
+            <i class="fas fa-trash-alt"></i>
+        </span>
+    </a>
+</div>
+<div>
+    {% for resource in resourcelist.resources.all %}
+    <div>
+        
+        <a href="{% url 'resource_detail' resource.pk %}">
+            <h3>{{resource.name}}</h3>
+        </a>
+        <span>
+            <!--   Here we are creating an anchor
+            tag that when clicked will hit our new
+            route and send a query to remove the song     -->
+            <a href="{% url 'list_resource_assoc' resourcelist.pk resource.pk %}?assoc=remove" class="button is-danger is-outlined">
+            <span class="icon is-small">
+                <i class="fas fa-times"></i>
+            </span>
+            </a>
+        </span>
+    </div>
+    {%  empty %}
+        <p>No resources in list yet!</p>
+    {% endfor %}
+</div>
+{% endblock %}
