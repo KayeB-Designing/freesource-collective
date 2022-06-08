@@ -1,167 +1,175 @@
 {% extends 'base.html' %} 
 {% block content %}
-<div>
-    <img src="{{resource.image}}" alt="{{resource.name}}" />
-</div>
-<div>
-    <h1>{{resource.name}}</h1>
-    {% if resource.verified_download %}
-    <div>
-        <span>
-            <i class="fas fa-check-circle"></i>
-        </span>
-        <span>This resource is a Verified Download.</span>
+    <div class="detail__img">
+        <img src="{{resource.image}}" alt="{{resource.name}}" />
     </div>
-    {% endif %}
-    {% if resource.general_pers_dev %}
-    <div>
-        <span>
-            <i class="fas fa-check-circle"></i>
-        </span>
-        <span>This resource is a general Personal Developement topic.</span>
-    </div>
-    {% endif %}
-    {% if resource.habit_building %}
-    <div>
-        <span>
-            <i class="fas fa-check-circle"></i>
-        </span>
-        <span>This is a Habit Building topic.</span>
-    </div>
-    {% endif %}
-    {% if resource.goal_setting %}
-    <div>
-        <span>
-            <i class="fas fa-check-circle"></i>
-        </span>
-        <span>This is a Goal Setting topic.</span>
-    </div>
-    {% endif %}
-    {% if resource.time_management %}
-    <div>
-        <span>
-            <i class="fas fa-check-circle"></i>
-        </span>
-        <span>This is a Time Management topic.</span>
-    </div>
-    {% endif %}
-    {% if resource.growth_mindset %}
-    <div>
-        <span>
-            <i class="fas fa-check-circle"></i>
-        </span>
-        <span>This is a Growth Mindset topic.</span>
-    </div>
-    {% endif %}
-    {% if resource.type_book %}
-    <div>
-        <span>
-            <i class="fas fa-check-circle"></i>
-        </span>
-        <span>This resource is an E-book.</span>
-    </div>
-    {% endif %}
-    {% if resource.type_video %}
-    <div>
-        <span>
-            <i class="fas fa-check-circle"></i>
-        </span>
-        <span>This resource is a Video.</span>
-    </div>
-    {% endif %}
-    {% if resource.type_podcast %}
-    <div>
-        <span>
-            <i class="fas fa-check-circle"></i>
-        </span>
-        <span>This resource is a Podcast.</span>
-    </div>
-    {% endif %}
-    {% if resource.type_worksheet %}
-    <div>
-        <span>
-            <i class="fas fa-check-circle"></i>
-        </span>
-        <span>This resource is a Worksheet.</span>
-    </div>
-    {% endif %}
-    {% if resource.type_article %}
-    <div>
-        <span>
-            <i class="fas fa-check-circle"></i>
-        </span>
-        <span>This resource is an Article.</span>
-    </div>
-    {% endif %}
-    {% if resource.type_other %}
-    <div>
-        <span>
-            <i class="fas fa-check-circle"></i>
-        </span>
-        <span>This resource is another type.</span>
-    </div>
-    {% endif %}
-</div>
-
-<br>
-<hr>
-<br>
-{% if user.is_authenticated %}
-    </div>
-    <h2>Add a comment!</h2>
-    <br>
-    <form action="{% url 'comment_create' resource.pk %}" method="post">
-        {% csrf_token %}
-        <div>
-            <div>
-                <input
-                    class="input"
-                    type="text"
-                    name="body"
-                    placeholder="What do you think?"
-                    required
-                />
-            </div>
-            <div class="control">
-                <input type="submit" value="Add Comment" />
-            </div>
+    <div  class="detail__container">
+        <h1 class="title">{{resource.name}}</h1>
+        <div  class="buttons">
+            <a class="button is-info" href="{% url 'resource_update' resource.pk %}">
+                <span class="icon">
+                    <i class="fas fa-edit"></i>
+                </span>
+            </a>
+            <a class="button is-danger" href="{% url 'resource_delete' resource.pk %}">
+                <span class="icon">
+                    <i class="fas fa-trash-alt"></i>
+                </span>
+            </a>
         </div>
-    </form>
-    <div>
+        <div class="detail__name">
+            {% if resource.verified_download %}
+        <div class="icon-text">
+            <span class="icon has-text-info">
+                <i class="fas fa-check-circle"></i>
+            </span>
+            <span>This resource is a Verified Download.</span>
+        </div>
+        {% endif %}
+        {% if resource.general_pers_dev %}
+        <div class="icon-text">
+            <span class="icon has-text-info">
+                <i class="fas fa-check-circle"></i>
+            </span>
+            <span>This resource is a general Personal Developement topic.</span>
+        </div>
+        {% endif %}
+        {% if resource.habit_building %}
+        <div class="icon-text">
+            <span class="icon has-text-info">
+                <i class="fas fa-check-circle"></i>
+            </span>
+            <span>This is a Habit Building topic.</span>
+        </div>
+        {% endif %}
+        {% if resource.goal_setting %}
+        <div class="icon-text">
+            <span class="icon has-text-info">
+                <i class="fas fa-check-circle"></i>
+            </span>
+            <span>This is a Goal Setting topic.</span>
+        </div>
+        {% endif %}
+        {% if resource.time_management %}
+        <div class="icon-text">
+            <span class="icon has-text-info">
+                <i class="fas fa-check-circle"></i>
+            </span>
+            <span>This is a Time Management topic.</span>
+        </div>
+        {% endif %}
+        {% if resource.growth_mindset %}
+        <div class="icon-text">
+            <span class="icon has-text-info">
+                <i class="fas fa-check-circle"></i>
+            </span>
+            <span>This is a Growth Mindset topic.</span>
+        </div>
+        {% endif %}
+        {% if resource.type_book %}
+        <div class="icon-text">
+            <span class="icon has-text-info">
+                <i class="fas fa-check-circle"></i>
+            </span>
+            <span>This resource is an E-book.</span>
+        </div>
+        {% endif %}
+        {% if resource.type_video %}
+        <div class="icon-text">
+            <span class="icon has-text-info">
+                <i class="fas fa-check-circle"></i>
+            </span>
+            <span>This resource is a Video.</span>
+        </div>
+        {% endif %}
+        {% if resource.type_podcast %}
+        <div class="icon-text">
+            <span class="icon has-text-info">
+                <i class="fas fa-check-circle"></i>
+            </span>
+            <span>This resource is a Podcast.</span>
+        </div>
+        {% endif %}
+        {% if resource.type_worksheet %}
+        <div class="icon-text">
+            <span class="icon has-text-info">
+                <i class="fas fa-check-circle"></i>
+            </span>
+            <span>This resource is a Worksheet.</span>
+        </div>
+        {% endif %}
+        {% if resource.type_article %}
+        <div class="icon-text">
+            <span class="icon has-text-info">
+                <i class="fas fa-check-circle"></i>
+            </span>
+            <span>This resource is an Article.</span>
+        </div>
+        {% endif %}
+        {% if resource.type_other %}
+        <div class="icon-text">
+            <span class="icon has-text-info">
+                <i class="fas fa-check-circle"></i>
+            </span>
+            <span>This resource is another type.</span>
+        </div>
+        {% endif %}
+        </div>
     <hr>
-    {% for comment in resource.comments.all %}
+    <br>
+    {% if user.is_authenticated %}
+        <div>
+            <form action="{% url 'comment_create' resource.pk %}" method="post">
+                {% csrf_token %}
+                <div>
+                    <div>
+                        <input class="input" type="text" name="body" placeholder="What do you think?" required/>
+                    </div>
+                    <div class="control">
+                        <input class="button is-info" type="submit" value="Add Comment" />
+                    </div>
+                </div>
+            </form>
+        </div>
+        <hr>
+        <div class="detail__about">
+            {% for comment in resource.comments.all %}
+            <div class="gallery">
+                <div class="card">
+                    <div>{{comment.authorID}}</div>
+                    <p>{{comment.created_at}}</p>
+                    <div>
+                        {{comment.body}}
+                    </div>
+                </div>
+                
+            </div>
+            <br>
+            <br>
+            {% empty %}
+            <p>
+                No comments available.
+            </p>
+        {% endfor %}
+        </div>
+    {% else %}
+        <div class="detail__about">
+            {% for comment in resource.comments.all %}
         <div>
             <div>
-                <h3>{{comment.authorID}}</h3>
+                <h3  class="title is-4">{{comment.authorID}}</h3>
                 <span>{{comment.created_at}}</span>
             </div>
             <div>
                 {{comment.body}}
             </div>
         </div>
-        <br>
-        <br>
         {% empty %}
         <p>
             No comments available.
         </p>
-    {% endfor %}
-{% else %}
-    {% for comment in resource.comments.all %}
-    <div>
-        <div>
-            <h3>{{comment.authorID}}</h3>
-            <span>{{comment.created_at}}</span>
+        {% endfor %}
         </div>
-        <div>
-            {{comment.body}}
-        </div>
+    {% endif %}
     </div>
-    {% empty %}
-    <p>
-        No comments available.
-    </p>
-    {% endfor %}
-{% endif %}
-</div>
 {% endblock %}

@@ -1,154 +1,39 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Freesource Library Collective</title>
-    </head>
-    <body>
-        {% extends 'base.html' %}
+{% extends 'base.html' %}
 
 {% comment %} for head title tags and helping us with SEO {% endcomment %}
 {% block title %}Resources{% endblock  %}
 
 {% block content %}
 
-<h1>Resources</h1>
+<h1 class="title pt-5">Resources</h1>
 <div>
     <a href="{% url 'resource_create' %}">Add Resource</a>
 </div>
-<div>
+<div class="gallery">
   {% for resource in resources %}
   <a href="{% url 'resource_detail' resource.pk %}">
-    <div>
-      <div>
-        <figure>
+    <div class="card">
+      <div class="card-image">
+        <figure class="image is-square">
           <img src="{{resource.image}}" alt="{{resource.name}}" />
         </figure>
       </div>
-      <div>
-        <h2>{{resource.name}}</h2>
-        {% if resource.verified_download %}
-        <div>
-            <span>
-                <i class="fas fa-check-circle"></i>
-            </span>
-            <span>This resource is a Verified Download.</span>
-        </div>
-        {% endif %}
-        {% if resource.general_pers_dev %}
-        <div>
-            <span>
-                <i class="fas fa-check-circle"></i>
-            </span>
-            <span>This resource is a general Personal Developement topic.</span>
-        </div>
-        {% endif %}
-        {% if resource.habit_building %}
-        <div>
-            <span>
-                <i class="fas fa-check-circle"></i>
-            </span>
-            <span>This is a Habit Building topic.</span>
-        </div>
-        {% endif %}
-        {% if resource.goal_setting %}
-        <div>
-            <span>
-                <i class="fas fa-check-circle"></i>
-            </span>
-            <span>This is a Goal Setting topic.</span>
-        </div>
-        {% endif %}
-        {% if resource.time_management %}
-        <div>
-            <span>
-                <i class="fas fa-check-circle"></i>
-            </span>
-            <span>This is a Time Management topic.</span>
-        </div>
-        {% endif %}
-        {% if resource.growth_mindset %}
-        <div>
-            <span>
-                <i class="fas fa-check-circle"></i>
-            </span>
-            <span>This is a Growth Mindset topic.</span>
-        </div>
-        {% endif %}
-        {% if resource.type_book %}
-        <div>
-            <span>
-                <i class="fas fa-check-circle"></i>
-            </span>
-            <span>This resource is an E-book.</span>
-        </div>
-        {% endif %}
-        {% if resource.type_video %}
-        <div>
-            <span>
-                <i class="fas fa-check-circle"></i>
-            </span>
-            <span>This resource is a Video.</span>
-        </div>
-        {% endif %}
-        {% if resource.type_podcast %}
-        <div>
-            <span>
-                <i class="fas fa-check-circle"></i>
-            </span>
-            <span>This resource is a Podcast.</span>
-        </div>
-        {% endif %}
-        {% if resource.type_worksheet %}
-        <div>
-            <span>
-                <i class="fas fa-check-circle"></i>
-            </span>
-            <span>This resource is a Worksheet.</span>
-        </div>
-        {% endif %}
-        {% if resource.type_article %}
-        <div>
-            <span>
-                <i class="fas fa-check-circle"></i>
-            </span>
-            <span>This resource is an Article.</span>
-        </div>
-        {% endif %}
-        {% if resource.type_other %}
-        <div>
-            <span>
-                <i class="fas fa-check-circle"></i>
-            </span>
-            <span>This resource is another type.</span>
-        </div>
-        {% endif %}
+      <div class="card-header">
+        <h2 class="card-header-title">{{resource.name}}</h2>
+        
+        
+        
       </div>
     </div>
   </a>
   <div>
-    <div>
-        <a href="{% url 'resource_update' resource.pk %}">
-            <span>
-                <i class="fas fa-edit"></i>
-            </span>
-        </a>
-        <a href="{% url 'resource_delete' resource.pk %}">
-            <span>
-                <i class="fas fa-trash-alt"></i>
-            </span>
-        </a>
-    </div>
+    
 	{% empty %}
-  <article>
-    <div>
+  <article class="message">
+    <div class="message-header">
       <p>No Resources Available</p>
     </div>
   </article>
   {% endfor %}
 </div>
 {% endblock %}
-    </body>
-</html>
