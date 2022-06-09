@@ -3,12 +3,8 @@
         {% block title %}Resources{% endblock  %}
 
         {% block content %}
-
+        <h1 class="title pt-5">Freesource Library Collective Resources</h1>
         <hr>
-        <h1  class="title pt-5">Freesource Library Collective Resources</h1>
-        <br>
-        <hr>
-        <br>
         <div>
                 <div>
                     <span>
@@ -18,22 +14,23 @@
                 </div>
                 <br>
             {% for resource in resources %}
-                {% if resource.habit_building == True %}
-                
+                <div class="gallery">
+                    {% if resource.habit_building == True %}
                     <a href="{% url 'resource_detail' resource.pk %}">
-                        <div>
-                            <div>
-                                <figure>
+                        <div class="card">
+                            <div class="card-image">
+                                <figurec lass="image is-square">
                                     <img src="{{resource.image}}" alt="{{resource.name}}" />
                                 </figure>
                             </div>
-                        </div>
-                        <div>
-                            <h2>{{resource.name}}</h2>
+                            <div class="card-header">
+                                <h2 class="card-header-title">{{resource.name}}</h2>
+                            </div>
                         </div>
                     </a> 
                     <br>
-                {% endif %}
+                    {% endif %}
+                </div>
             {% endfor %}
             {% if resources != resource.habit_building %}
                     <p>No Resources Available</p>
@@ -47,22 +44,25 @@
             </div>
             <br>
             {% for resource in resources %}
-                {% if resource.goal_setting == True %}
+                <div class="gallery">
+                    {% if resource.goal_setting == True %}
                 
                     <a href="{% url 'resource_detail' resource.pk %}">
-                        <div>
-                            <div>
-                                <figure>
+                        <div class="card">
+                            <div class="card-image">
+                                <figure class="image is-square">
                                     <img src="{{resource.image}}" alt="{{resource.name}}" />
                                 </figure>
                             </div>
+                            <div class="card-header">
+                                <h2 class="card-header-title">{{resource.name}}</h2>
+                            </div>
                         </div>
-                        <div>
-                            <h2>{{resource.name}}</h2>
-                        </div>
+                        
                     </a>  
                     <br>
                 {% endif %}
+                </div>
             {% endfor %}
             {% if resources != resource.goal_setting %}
                     <p>No Resources Available</p>
@@ -76,22 +76,25 @@
             </div>
             <br>
             {% for resource in resources %}
-                {% if resource.time_management == True %}
+                <div class="gallery">
+                    {% if resource.time_management == True %}
                 
                     <a href="{% url 'resource_detail' resource.pk %}">
-                        <div>
-                            <div>
-                                <figure>
+                        <div class="card">
+                            <div class="card-image">
+                                <figure class="image is-square">
                                     <img src="{{resource.image}}" alt="{{resource.name}}" />
                                 </figure>
                             </div>
+                            <div class="card-header">
+                                <h2 class="card-header-title">{{resource.name}}</h2>
+                            </div>
                         </div>
-                        <div>
-                            <h2>{{resource.name}}</h2>
-                        </div>
+                        
                     </a> 
                     <br> 
                 {% endif %}
+                </div>
             {% endfor %}
             {% if resources != resource.time_management %}
                     <p>No Resources Available</p>
@@ -105,22 +108,25 @@
             </div>
             <br>
             {% for resource in resources %}
-                {% if resource.growth_mindset == True %}
+                <div class="gallery">
+                    {% if resource.growth_mindset == True %}
                 
                     <a href="{% url 'resource_detail' resource.pk %}">
-                        <div>
-                            <div>
-                                <figure>
+                        <div class="card">
+                            <div class="card-image">
+                                <figure class="image is-square">
                                     <img src="{{resource.image}}" alt="{{resource.name}}" />
                                 </figure>
                             </div>
+                            <div class="card-header">
+                                <h2 class="card-header-title">{{resource.name}}</h2>
+                            </div>
                         </div>
-                        <div>
-                            <h2>{{resource.name}}</h2>
-                        </div>
+                        
                     </a>
                     <br> 
-                {% endif %}
+                    {% endif %}
+                </div>
             {% endfor %}
             {% if resources != resource.general_pers_dev %}
                     <p>No Resources Available</p>
@@ -134,22 +140,25 @@
             </div>
             <br> 
             {% for resource in resources %}
-                {% if resource.general_pers_dev == True %}
+                <div class="gallery">
+                    {% if resource.general_pers_dev == True %}
                 
                     <a href="{% url 'resource_detail' resource.pk %}">
-                        <div>
-                            <div>
-                                <figure>
+                        <div class="card">
+                            <div class="card-image">
+                                <figure class="image is-square">
                                     <img src="{{resource.image}}" alt="{{resource.name}}" />
                                 </figure>
                             </div>
+                            <div class="card-header">
+                                <h2 class="card-header-title">{{resource.name}}</h2>
+                            </div>
                         </div>
-                        <div>
-                            <h2>{{resource.name}}</h2>
-                        </div>
+                        
                     </a>
                     <br>
                 {% endif %}
+                </div>
             {% endfor %}
             {% if resources != resource.general_pers_dev %}
                     <p>No Resources Available</p>
