@@ -7,17 +7,17 @@
 <div class="detail__container">
     <div class="detail__name">
         {% if resourcelist.fav_list %}
-    <div class="icon-text">
-        <span class="icon has-text-info">
-            <i class="fas fa-check-circle"></i>
-        </span>
-        <span>Favorites</span>
-    </div>
+        <div class="icon-text">
+            <span class="icon has-text-info">
+                <i class="fas fa-check-circle" style="color:#f17501"></i>
+            </span>
+            <span>Favorites</span>
+        </div>
     {% endif %}
     {% if resourcelist.general_pers_dev %}
     <div class="icon-text">
         <span class="icon has-text-info">
-            <i class="fas fa-check-circle"></i>
+            <i class="fas fa-check-circle" style="color:#f17501"></i>
         </span>
         <span>General Personal Developement</span>
     </div>
@@ -25,7 +25,7 @@
     {% if resourcelist.habit_building %}
     <div class="icon-text">
         <span class="icon has-text-info">
-            <i class="fas fa-check-circle"></i>
+            <i class="fas fa-check-circle" style="color:#f17501"></i>
         </span>
         <span>Habit Building</span>
     </div>
@@ -33,7 +33,7 @@
     {% if resourcelist.goal_setting %}
     <div class="icon-text">
         <span class="icon has-text-info">
-            <i class="fas fa-check-circle"></i>
+            <i class="fas fa-check-circle" style="color:#f17501"></i>
         </span>
         <span>Goal Setting</span>
     </div>
@@ -41,7 +41,7 @@
     {% if resourcelist.time_management %}
     <div class="icon-text">
         <span class="icon has-text-info">
-            <i class="fas fa-check-circle"></i>
+            <i class="fas fa-check-circle" style="color:#f17501"></i>
         </span>
         <span>Time Management</span>
     </div>
@@ -49,7 +49,7 @@
     {% if resourcelist.growth_mindset %}
     <div class="icon-text">
         <span class="icon has-text-info">
-            <i class="fas fa-check-circle"></i>
+            <i class="fas fa-check-circle" style="color:#f17501"></i>
         </span>
         <span>Growth Mindset</span>
     </div>
@@ -59,32 +59,38 @@
 </div>
 
 <div class="detail__about">
-    <h1 class="title">Resource List: <span>{{resourcelist.name}}</span></h1>
+    <h1 class="title">{{resourcelist.name}}<span class="is-pulled-right">
+
+        <div class="buttons">
+            <a class="button is-info" style="background-color:#378846" href="{% url 'list_update' resourcelist.pk %}">
+                <span class="icon">
+                    <i class="fas fa-edit"></i>
+                </span>
+            </a>
+            <a class="button is-danger" href="{% url 'list_delete' resourcelist.pk %}">
+                <span class="icon">
+                    <i class="fas fa-trash-alt"></i>
+                </span>
+            </a>
+        </div>
+
+
+    </span></h1>
     <div class="buttons">
-        <a class="button is-info" href="{% url 'list_update' resourcelist.pk %}">
-            <span class="icon">
-                <i class="fas fa-edit"></i>
-            </span>
-        </a>
-        <a class="button is-danger" href="{% url 'list_delete' resourcelist.pk %}">
-            <span class="icon">
-                <i class="fas fa-trash-alt"></i>
-            </span>
-        </a>
+        
     </div>
     <hr>
         
     <div>
         {% for resource in resourcelist.resources.all %}
-            <a href="{% url 'resource_detail' resource.pk %}">
-                    <div>{{resource.name}}</div>
-                    <div>
-                        <a class="button is-danger" href="{% url 'list_resource_assoc' resourcelist.pk resource.pk %}?assoc=remove">
+            <a class="white" style="font-weight: bolder" href="{% url 'resource_detail' resource.pk %}">
+                    <h3 class="subtitle">{{resource.name}} <span>
+                        <a class="button is-danger is-pulled-right"href="{% url 'list_resource_assoc' resourcelist.pk resource.pk %}?assoc=remove">
                             <span class="icon">
                                 <i class="fas fa-times"></i>
                             </span>
                         </a>
-                    </div>
+                    </span></h3>
                 </div>
             </a>
             <br>

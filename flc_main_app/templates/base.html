@@ -15,7 +15,7 @@
     <body >
         <nav class="navbar is-white" style="color: #02425d;" role="navigation" aria-label="main navigation">
             <div class="navbar-brand">
-                <a class="navbar-item" style="color:#02425d" href="/">Freesource Library Collective</a>
+                <a class="navbar-item" style="color:#f17501; font-weight: bold;" href="/">Freesource Library Collective</a>
                 <a style="color:#02425d" role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
                     <span aria-hidden="true"></span>
                     <span aria-hidden="true"></span>
@@ -33,7 +33,7 @@
                         <a class="navbar-item" style="color:#02425d" href="{% url 'list_list' %}">Resource Lists</a>
                     </div>
                     <div class="navbar-menu navbar-end">
-                        <span class="navbar-item" style="color:#02425d">Welcome: {{user.username}}</span>
+                        <span class="navbar-item" style="color:#378846; font-weight: bolder;">Welcome:<span style="color:#f17501; font-weight: bold;">{{user.username}}</span>
                         {% if user.is_superuser %}
                                 <a class="navbar-item" style="color:#02425d" href="http://127.0.0.1:8000/admin/">Admin</a>
                         {% endif %}

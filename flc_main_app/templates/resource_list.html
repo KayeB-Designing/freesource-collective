@@ -1,13 +1,9 @@
 {% extends 'base.html' %}
 {% block title %}Resources{% endblock  %}
 {% block content %}
-  <h1 class="title pt-5">Resources</h1>
+  <h1 class="title pt-5">Resources<span class="is-pulled-right"><a class="button is-info" style="background-color:#378846;" href="{% url 'resource_create' %}">Add Resource</a></span></h1>
   <hr>
   <div>
-    <div>
-      <a class="button is-info" href="{% url 'resource_create' %}">Add Resource</a>
-    </div>
-    <hr>
     <div class="gallery">
       {% for resource in resources %}
         <a href="{% url 'resource_detail' resource.pk %}">
@@ -18,7 +14,9 @@
               </figure>
             </div>
             <div class="card-header">
-              <h2 class="card-header-title">{{resource.name}}</h2>
+              <h2 class="card-header-title" style="color:#378846">
+                <span>{{resource.name}}</span>
+              </h2>
             </div>
           </div>
         </a>

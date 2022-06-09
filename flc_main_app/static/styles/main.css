@@ -19,6 +19,10 @@ h3 {
     color: #f17501;
 }
 
+.subtitle {
+    color: #ffffff;
+}
+
 .gallery {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -31,7 +35,7 @@ h3 {
 }
 
 .gallery .card:hover {
-    transform: scale(1.1);
+    transform: scale(1.05);
     z-index: 10;
 }
 
@@ -51,7 +55,7 @@ p {
   
 .detail__img::after {
     content: "";
-    background-image: linear-gradient(transparent 60%, #1f1f1f);
+    background-image: linear-gradient(transparent 20%, #02425d);
     position: absolute;
     top: 0;
     left: 0;
@@ -70,9 +74,18 @@ img {
 .detail__name {
     position: absolute;
     z-index: 5;
-    top: 400px;
+    top: 350px;
 }
   
 .detail__container {
     margin-top: 500px;
+}
+
+.white {
+    color:#ffffff;
+}
+
+hr {
+    background-color:#378846;
+    height: 5px;
 }

@@ -3,7 +3,8 @@
         <h1 class="title pt-5">Freesource Library Collective Registration Page</h1>
         <form method="post" action="{% url 'register' %}">
             {% csrf_token %} {{ form.as_p }}
-            <input type="submit" class="button is-info" value="Register" />
+            <br>
+            <input style="background-color:#378846" type="submit" class="button is-info" value="Register" />
             <input type="hidden" name="next" value="{{ next }}" />
         </form>
         {% endblock %}
