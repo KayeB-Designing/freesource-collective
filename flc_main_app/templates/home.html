@@ -13,8 +13,9 @@
                     <span>This is a Habit Building topic.</span>
                 </div>
                 <br>
+                <div class="gallery"></div>
             {% for resource in resources %}
-                <div class="gallery">
+                
                     {% if resource.habit_building == True %}
                     <a href="{% url 'resource_detail' resource.pk %}">
                         <div class="card">
@@ -30,11 +31,9 @@
                     </a> 
                     <br>
                     {% endif %}
-                </div>
+                
             {% endfor %}
-            {% if resources != resource.habit_building %}
-                    <p>No Resources Available</p>
-            {% endif %}
+        </div>
             <hr>
             <div>
                 <span>
@@ -43,8 +42,9 @@
                 <span>This is a Goal Setting topic.</span>
             </div>
             <br>
+            <div class="gallery">
             {% for resource in resources %}
-                <div class="gallery">
+                
                     {% if resource.goal_setting == True %}
                 
                     <a href="{% url 'resource_detail' resource.pk %}">
@@ -62,11 +62,10 @@
                     </a>  
                     <br>
                 {% endif %}
-                </div>
+                
             {% endfor %}
-            {% if resources != resource.goal_setting %}
-                    <p>No Resources Available</p>
-            {% endif %}
+
+        </div>
             <hr>
             <div>
                 <span>
@@ -75,8 +74,9 @@
                 <span>This is a Time Management topic.</span>
             </div>
             <br>
+            <div class="gallery">
             {% for resource in resources %}
-                <div class="gallery">
+                
                     {% if resource.time_management == True %}
                 
                     <a href="{% url 'resource_detail' resource.pk %}">
@@ -94,11 +94,9 @@
                     </a> 
                     <br> 
                 {% endif %}
-                </div>
+                
             {% endfor %}
-            {% if resources != resource.time_management %}
-                    <p>No Resources Available</p>
-            {% endif %}
+        </div>
             <hr>
             <div>
                 <span>
@@ -107,8 +105,9 @@
                 <span>This is a Growth Mindset topic.</span>
             </div>
             <br>
+            <div class="gallery">
             {% for resource in resources %}
-                <div class="gallery">
+                
                     {% if resource.growth_mindset == True %}
                 
                     <a href="{% url 'resource_detail' resource.pk %}">
@@ -126,11 +125,9 @@
                     </a>
                     <br> 
                     {% endif %}
-                </div>
+                
             {% endfor %}
-            {% if resources != resource.general_pers_dev %}
-                    <p>No Resources Available</p>
-            {% endif %}
+        </div>
             <hr>
             <div>
                 <span>
@@ -139,8 +136,9 @@
                 <span>This resource is a general Personal Developement topic.</span>
             </div>
             <br> 
+            <div class="gallery">
             {% for resource in resources %}
-                <div class="gallery">
+                
                     {% if resource.general_pers_dev == True %}
                 
                     <a href="{% url 'resource_detail' resource.pk %}">
@@ -158,11 +156,9 @@
                     </a>
                     <br>
                 {% endif %}
-                </div>
+                
             {% endfor %}
-            {% if resources != resource.general_pers_dev %}
-                    <p>No Resources Available</p>
-            {% endif %}
+        </div>
 
 </div>
 {% endblock %}

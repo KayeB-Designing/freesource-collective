@@ -3,7 +3,7 @@
         <h1 class="title pt-5">Freesource Library Collective Log In Page</h1>
         <form method="post" action="{% url 'login' %}">
             {% csrf_token %} {{ form.as_p }}
-            <input type="submit" class="btn" value="login" />
+            <input type="submit" class="button is-info" value="login" />
             <input type="hidden" name="next" value="{{ next }}" />
         </form>
         {% endblock %}

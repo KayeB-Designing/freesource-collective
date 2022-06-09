@@ -5,8 +5,10 @@
 
 {% block content %}
 
-<h1 class="title pt-5">Resources</h1>
-<a href="{% url 'list_create' %}">Add New List</a>
+<h1 class="title pt-5">Resource Lists</h1>
+<hr>
+<a class="button is-info" href="{% url 'list_create' %}">Add New List</a>
+<hr>
 <div>
   {% for list in lists %}
   <a href="{% url 'list_detail' list.pk %}">

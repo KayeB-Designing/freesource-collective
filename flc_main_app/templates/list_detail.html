@@ -1,37 +1,86 @@
 {% extends 'base.html' %}
 {% block content %}
-<h1 class="title pt-5">Freesource Library Collective Resource Lists</h1>
-<br>
-<hr>
-<h2>Resource List: <span>{{resourcelist.name}}</span></h2>
-<figure>
+
+<div class="detail__img">
     <img src="{{resourcelist.image}}" alt="{{resourcelist.name}}" />
-</figure>
-<div>
-    <a href="{% url 'list_update' resourcelist.pk %}">
-        <span>
-            <i class="fas fa-edit"></i>
-        </span>
-    </a>
-    <a href="{% url 'list_delete' resourcelist.pk %}">
-        <span>
-            <i class="fas fa-trash-alt"></i>
-        </span>
-    </a>
 </div>
-<div>
+<div class="detail__container">
+    <div class="detail__name">
+        {% if resourcelist.fav_list %}
+    <div class="icon-text">
+        <span class="icon has-text-info">
+            <i class="fas fa-check-circle"></i>
+        </span>
+        <span>Favorites</span>
+    </div>
+    {% endif %}
+    {% if resourcelist.general_pers_dev %}
+    <div class="icon-text">
+        <span class="icon has-text-info">
+            <i class="fas fa-check-circle"></i>
+        </span>
+        <span>General Personal Developement</span>
+    </div>
+    {% endif %}
+    {% if resourcelist.habit_building %}
+    <div class="icon-text">
+        <span class="icon has-text-info">
+            <i class="fas fa-check-circle"></i>
+        </span>
+        <span>Habit Building</span>
+    </div>
+    {% endif %}
+    {% if resourcelist.goal_setting %}
+    <div class="icon-text">
+        <span class="icon has-text-info">
+            <i class="fas fa-check-circle"></i>
+        </span>
+        <span>Goal Setting</span>
+    </div>
+    {% endif %}
+    {% if resourcelist.time_management %}
+    <div class="icon-text">
+        <span class="icon has-text-info">
+            <i class="fas fa-check-circle"></i>
+        </span>
+        <span>Time Management</span>
+    </div>
+    {% endif %}
+    {% if resourcelist.growth_mindset %}
+    <div class="icon-text">
+        <span class="icon has-text-info">
+            <i class="fas fa-check-circle"></i>
+        </span>
+        <span>Growth Mindset</span>
+    </div>
+    {% endif %}
+   
+    
+</div>
+
+<div class="detail__about">
+    <h1 class="title">Resource List: <span>{{resourcelist.name}}</span></h1>
+    <div class="buttons">
+        <a class="button is-info" href="{% url 'list_update' resourcelist.pk %}">
+            <span class="icon">
+                <i class="fas fa-edit"></i>
+            </span>
+        </a>
+        <a class="button is-danger" href="{% url 'list_delete' resourcelist.pk %}">
+            <span class="icon">
+                <i class="fas fa-trash-alt"></i>
+            </span>
+        </a>
+    </div>
+    <hr>
     {% for resource in resourcelist.resources.all %}
     <div>
-        
         <a href="{% url 'resource_detail' resource.pk %}">
             <h3>{{resource.name}}</h3>
         </a>
         <span>
-            <!--   Here we are creating an anchor
-            tag that when clicked will hit our new
-            route and send a query to remove the song     -->
-            <a href="{% url 'list_resource_assoc' resourcelist.pk resource.pk %}?assoc=remove" class="button is-danger is-outlined">
-            <span class="icon is-small">
+            <a class="button is-danger" href="{% url 'list_resource_assoc' resourcelist.pk resource.pk %}?assoc=remove">
+            <span  class="icon">
                 <i class="fas fa-times"></i>
             </span>
             </a>
@@ -41,4 +90,5 @@
         <p>No resources in list yet!</p>
     {% endfor %}
 </div>
+
 {% endblock %}

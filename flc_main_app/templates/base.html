@@ -13,7 +13,7 @@
         <title>Freesource Library Collective - {% block title %}{% endblock %}</title> 
     </head>
     <body >
-        <nav class="navbar is-white fixed-top" style="color: #02425d;" role="navigation" aria-label="main navigation">
+        <nav class="navbar is-white" style="color: #02425d;" role="navigation" aria-label="main navigation">
             <div class="navbar-brand">
                 <a class="navbar-item" style="color:#02425d" href="/">Freesource Library Collective</a>
                 <a style="color:#02425d" role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
@@ -33,7 +33,10 @@
                         <a class="navbar-item" style="color:#02425d" href="{% url 'list_list' %}">Resource Lists</a>
                     </div>
                     <div class="navbar-menu navbar-end">
-                        <span>Welcome: {{user.username}}</span>
+                        <span class="navbar-item" style="color:#02425d">Welcome: {{user.username}}</span>
+                        {% if user.is_superuser %}
+                                <a class="navbar-item" style="color:#02425d" href="http://127.0.0.1:8000/admin/">Admin</a>
+                        {% endif %}
                         <a class="navbar-item" style="color:#02425d" href="{% url 'logout' %}">Logout</a>
                     </div>
                 {% else %}
@@ -44,6 +47,7 @@
                         <a class="navbar-item" style="color:#02425d" href="{% url 'register' %}">Register</a>
                     </div>
                 {% endif %}
+                
         </nav>
         <div class="container">
 
