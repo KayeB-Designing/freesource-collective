@@ -73,22 +73,26 @@
         </a>
     </div>
     <hr>
-    {% for resource in resourcelist.resources.all %}
+        
     <div>
-        <a href="{% url 'resource_detail' resource.pk %}">
-            <h3>{{resource.name}}</h3>
-        </a>
-        <span>
-            <a class="button is-danger" href="{% url 'list_resource_assoc' resourcelist.pk resource.pk %}?assoc=remove">
-            <span  class="icon">
-                <i class="fas fa-times"></i>
-            </span>
+        {% for resource in resourcelist.resources.all %}
+            <a href="{% url 'resource_detail' resource.pk %}">
+                    <div>{{resource.name}}</div>
+                    <div>
+                        <a class="button is-danger" href="{% url 'list_resource_assoc' resourcelist.pk resource.pk %}?assoc=remove">
+                            <span class="icon">
+                                <i class="fas fa-times"></i>
+                            </span>
+                        </a>
+                    </div>
+                </div>
             </a>
-        </span>
+            <br>
+        {% endfor %}
     </div>
-    {%  empty %}
-        <p>No resources in list yet!</p>
-    {% endfor %}
+
 </div>
+
+
 
 {% endblock %}

@@ -4,7 +4,8 @@
         <img src="{{resource.image}}" alt="{{resource.name}}" />
     </div>
     <div class="detail__container">
-        <h1 class="title">{{resource.name}}</h1>
+        <a href="{{resource.link}}" target="_blank"><h1 class="title">{{resource.name}}</h1></a>
+        <br>
         <div class="buttons">
             <a class="button is-info" href="{% url 'resource_update' resource.pk %}">
                 <span class="icon">

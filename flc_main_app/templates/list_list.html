@@ -1,34 +1,162 @@
 {% extends 'base.html' %}
-
-{% comment %} for head title tags and helping us with SEO {% endcomment %}
 {% block title %}Resource Lists{% endblock  %}
-
 {% block content %}
-
 <h1 class="title pt-5">Resource Lists</h1>
 <hr>
-<a class="button is-info" href="{% url 'list_create' %}">Add New List</a>
-<hr>
 <div>
-  {% for list in lists %}
-  <a href="{% url 'list_detail' list.pk %}">
-    <div>
-      <div>
-        <figure>
-          <img src="{{list.image}}" alt="{{list.name}}" />
-        </figure>
+  <div>
+    <a class="button is-info" href="{% url 'list_create' %}">Add New List</a>
+  </div>
+  <hr>
+  <div>
+    <span>
+        <i class="fas fa-check-circle"></i>
+    </span>
+    <span>Favorites</span>
+  </div>
+  <br>
+  <div class="gallery">
+    {% for list in lists %}
+    {% if list.fav_list == True %}
+    <a href="{% url 'list_detail' list.pk %}">
+      <div class="card">
+        <div class="card-image">
+          <figure class="image is-square">
+            <img src="{{list.image}}" alt="{{list.name}}" />
+          </figure>
+        </div>
+        <div class="card-header">
+          <h2 class="card-header-title">{{list.name}}</h2>
+        </div>
       </div>
-      <div>
-        <p>{{list.name}}</p>
+    </a>
+    {% endif %}
+    {% endfor %}
+  </div>
+  <div>
+    <span>
+        <i class="fas fa-check-circle"></i>
+    </span>
+    <span>General Personal Developement</span>
+  </div>
+  <br>
+  <div class="gallery">
+    {% for list in lists %}
+    {% if list.general_pers_dev == True %}
+    <a href="{% url 'list_detail' list.pk %}">
+      <div class="card">
+        <div class="card-image">
+          <figure class="image is-square">
+            <img src="{{list.image}}" alt="{{list.name}}" />
+          </figure>
+        </div>
+        <div class="card-header">
+          <h2 class="card-header-title">{{list.name}}</h2>
+        </div>
       </div>
-    </div>
-  </a>
-	{% empty %}
-  <article>
-    <div>
-      <p>No Lists Available</p>
-    </div>
-  </article>
-  {% endfor %}
+    </a>
+    {% endif %}
+    {% endfor %}
+  </div>
+  <div>
+    <span>
+        <i class="fas fa-check-circle"></i>
+    </span>
+    <span>Habit Building</span>
+  </div>
+  <br>
+  <div class="gallery">
+    {% for list in lists %}
+    {% if list.habit_building == True %}
+    <a href="{% url 'list_detail' list.pk %}">
+      <div class="card">
+        <div class="card-image">
+          <figure class="image is-square">
+            <img src="{{list.image}}" alt="{{list.name}}" />
+          </figure>
+        </div>
+        <div class="card-header">
+          <h2 class="card-header-title">{{list.name}}</h2>
+        </div>
+      </div>
+    </a>
+    {% endif %}
+    {% endfor %}
+  </div>
+  <div>
+    <span>
+        <i class="fas fa-check-circle"></i>
+    </span>
+    <span>Goal Setting</span>
+  </div>
+  <br>
+  <div class="gallery">
+    {% for list in lists %}
+    {% if list.goal_setting == True %}
+    <a href="{% url 'list_detail' list.pk %}">
+      <div class="card">
+        <div class="card-image">
+          <figure class="image is-square">
+            <img src="{{list.image}}" alt="{{list.name}}" />
+          </figure>
+        </div>
+        <div class="card-header">
+          <h2 class="card-header-title">{{list.name}}</h2>
+        </div>
+      </div>
+    </a>
+    {% endif %}
+    {% endfor %}
+  </div>
+  <div>
+    <span>
+        <i class="fas fa-check-circle"></i>
+    </span>
+    <span>Time Management</span>
+  </div>
+  <br>
+  <div class="gallery">
+    {% for list in lists %}
+    {% if list.time_management == True %}
+    <a href="{% url 'list_detail' list.pk %}">
+      <div class="card">
+        <div class="card-image">
+          <figure class="image is-square">
+            <img src="{{list.image}}" alt="{{list.name}}" />
+          </figure>
+        </div>
+        <div class="card-header">
+          <h2 class="card-header-title">{{list.name}}</h2>
+        </div>
+      </div>
+    </a>
+    {% endif %}
+    {% endfor %}
+  </div>
+  <div>
+    <span>
+        <i class="fas fa-check-circle"></i>
+    </span>
+    <span>Growth Mindset</span>
+  </div>
+  <br>
+  <div class="gallery">
+    {% for list in lists %}
+    {% if list.growth_mindset == True %}
+    <a href="{% url 'list_detail' list.pk %}">
+      <div class="card">
+        <div class="card-image">
+          <figure class="image is-square">
+            <img src="{{list.image}}" alt="{{list.name}}" />
+          </figure>
+        </div>
+        <div class="card-header">
+          <h2 class="card-header-title">{{list.name}}</h2>
+        </div>
+      </div>
+    </a>
+    {% endif %}
+    {% endfor %}
+  </div>
 </div>
 {% endblock %}

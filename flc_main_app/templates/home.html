@@ -1,22 +1,19 @@
-        {% extends 'base.html' %}
-
-        {% block title %}Resources{% endblock  %}
-
-        {% block content %}
-        <h1 class="title pt-5">Freesource Library Collective Resources</h1>
-        <hr>
+{% extends 'base.html' %}
+{% block title %}Resources{% endblock  %}
+{% block content %}
+    <h1 class="title pt-5">Freesource Library Collective Resources</h1>
+    <hr>
+    <div>
         <div>
-                <div>
-                    <span>
-                        <i class="fas fa-check-circle"></i>
-                    </span>
-                    <span>This is a Habit Building topic.</span>
-                </div>
-                <br>
-                <div class="gallery"></div>
+            <span>
+                <i class="fas fa-check-circle"></i>
+            </span>
+            <span>This is a Habit Building topic.</span>
+        </div>
+        <br>
+        <div class="gallery">
             {% for resource in resources %}
-                
-                    {% if resource.habit_building == True %}
+                {% if resource.habit_building == True %}
                     <a href="{% url 'resource_detail' resource.pk %}">
                         <div class="card">
                             <div class="card-image">
@@ -29,136 +26,114 @@
                             </div>
                         </div>
                     </a> 
-                    <br>
-                    {% endif %}
-                
+                {% endif %}
             {% endfor %}
         </div>
-            <hr>
-            <div>
-                <span>
-                    <i class="fas fa-check-circle"></i>
-                </span>
-                <span>This is a Goal Setting topic.</span>
-            </div>
-            <br>
-            <div class="gallery">
-            {% for resource in resources %}
-                
-                    {% if resource.goal_setting == True %}
-                
-                    <a href="{% url 'resource_detail' resource.pk %}">
-                        <div class="card">
-                            <div class="card-image">
-                                <figure class="image is-square">
-                                    <img src="{{resource.image}}" alt="{{resource.name}}" />
-                                </figure>
-                            </div>
-                            <div class="card-header">
-                                <h2 class="card-header-title">{{resource.name}}</h2>
-                            </div>
-                        </div>
-                        
-                    </a>  
-                    <br>
-                {% endif %}
-                
-            {% endfor %}
+        <hr>
+        <div>
+            <span>
+                <i class="fas fa-check-circle"></i>
+            </span>
+            <span>This is a Goal Setting topic.</span>
+        </div>
+        <br>
+        <div class="gallery">
+        {% for resource in resources %}
+        {% if resource.goal_setting == True %}
 
+        <a href="{% url 'resource_detail' resource.pk %}">
+        <div class="card">
+        <div class="card-image">
+        <figure class="image is-square">
+        <img src="{{resource.image}}" alt="{{resource.name}}" />
+        </figure>
         </div>
-            <hr>
-            <div>
-                <span>
-                    <i class="fas fa-check-circle"></i>
-                </span>
-                <span>This is a Time Management topic.</span>
-            </div>
-            <br>
-            <div class="gallery">
-            {% for resource in resources %}
-                
-                    {% if resource.time_management == True %}
-                
-                    <a href="{% url 'resource_detail' resource.pk %}">
-                        <div class="card">
-                            <div class="card-image">
-                                <figure class="image is-square">
-                                    <img src="{{resource.image}}" alt="{{resource.name}}" />
-                                </figure>
-                            </div>
-                            <div class="card-header">
-                                <h2 class="card-header-title">{{resource.name}}</h2>
-                            </div>
-                        </div>
-                        
-                    </a> 
-                    <br> 
-                {% endif %}
-                
-            {% endfor %}
+        <div class="card-header">
+        <h2 class="card-header-title">{{resource.name}}</h2>
         </div>
-            <hr>
-            <div>
-                <span>
-                    <i class="fas fa-check-circle"></i>
-                </span>
-                <span>This is a Growth Mindset topic.</span>
-            </div>
-            <br>
-            <div class="gallery">
-            {% for resource in resources %}
-                
-                    {% if resource.growth_mindset == True %}
-                
-                    <a href="{% url 'resource_detail' resource.pk %}">
-                        <div class="card">
-                            <div class="card-image">
-                                <figure class="image is-square">
-                                    <img src="{{resource.image}}" alt="{{resource.name}}" />
-                                </figure>
-                            </div>
-                            <div class="card-header">
-                                <h2 class="card-header-title">{{resource.name}}</h2>
-                            </div>
-                        </div>
-                        
-                    </a>
-                    <br> 
-                    {% endif %}
-                
-            {% endfor %}
         </div>
-            <hr>
-            <div>
-                <span>
-                    <i class="fas fa-check-circle"></i>
-                </span>
-                <span>This resource is a general Personal Developement topic.</span>
-            </div>
-            <br> 
-            <div class="gallery">
-            {% for resource in resources %}
-                
-                    {% if resource.general_pers_dev == True %}
-                
-                    <a href="{% url 'resource_detail' resource.pk %}">
-                        <div class="card">
-                            <div class="card-image">
-                                <figure class="image is-square">
-                                    <img src="{{resource.image}}" alt="{{resource.name}}" />
-                                </figure>
-                            </div>
-                            <div class="card-header">
-                                <h2 class="card-header-title">{{resource.name}}</h2>
-                            </div>
-                        </div>
-                        
-                    </a>
-                    <br>
-                {% endif %}
-                
-            {% endfor %}
+        </a>  
+        {% endif %}
+        {% endfor %}
         </div>
+        <hr>
+        <div>
+        <span>
+        <i class="fas fa-check-circle"></i>
+        </span>
+        <span>This is a Time Management topic.</span>
+        </div>
+        <br>
+        <div class="gallery">
+        {% for resource in resources %}
+        {% if resource.time_management == True %}
 
-</div>
+        <a href="{% url 'resource_detail' resource.pk %}">
+        <div class="card">
+        <div class="card-image">
+        <figure class="image is-square">
+        <img src="{{resource.image}}" alt="{{resource.name}}" />
+        </figure>
+        </div>
+        <div class="card-header">
+        <h2 class="card-header-title">{{resource.name}}</h2>
+        </div>
+        </div>
+        </a> 
+        {% endif %}
+        {% endfor %}
+        </div>
+        <hr>
+        <div>
+        <span>
+        <i class="fas fa-check-circle"></i>
+        </span>
+        <span>This is a Growth Mindset topic.</span>
+        </div>
+        <br>
+        <div class="gallery">
+        {% for resource in resources %}
+        {% if resource.growth_mindset == True %}
+        <a href="{% url 'resource_detail' resource.pk %}">
+        <div class="card">
+        <div class="card-image">
+        <figure class="image is-square">
+        <img src="{{resource.image}}" alt="{{resource.name}}" />
+        </figure>
+        </div>
+        <div class="card-header">
+        <h2 class="card-header-title">{{resource.name}}</h2>
+        </div>
+        </div>
+        </a>
+        {% endif %}
+        {% endfor %}
+        </div>
+        <hr>
+        <div>
+        <span>
+        <i class="fas fa-check-circle"></i>
+        </span>
+        <span>This resource is a general Personal Developement topic.</span>
+        </div>
+        <br> 
+        <div class="gallery">
+        {% for resource in resources %}
+        {% if resource.general_pers_dev == True %}
+        <a href="{% url 'resource_detail' resource.pk %}">
+        <div class="card">
+        <div class="card-image">
+        <figure class="image is-square">
+        <img src="{{resource.image}}" alt="{{resource.name}}" />
+        </figure>
+        </div>
+        <div class="card-header">
+        <h2 class="card-header-title">{{resource.name}}</h2>
+        </div>
+        </div>
+        </a>
+        {% endif %}
+        {% endfor %}
+        </div>
+    </div>
 {% endblock %}

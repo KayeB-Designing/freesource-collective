@@ -1,43 +1,28 @@
 {% extends 'base.html' %}
-
-{% comment %} for head title tags and helping us with SEO {% endcomment %}
 {% block title %}Resources{% endblock  %}
-
 {% block content %}
-
-<h1 class="title pt-5">Resources</h1>
-<hr>
-<div>
+  <h1 class="title pt-5">Resources</h1>
+  <hr>
+  <div>
     <div>
-        <a class="button is-info" href="{% url 'resource_create' %}">Add Resource</a>
+      <a class="button is-info" href="{% url 'resource_create' %}">Add Resource</a>
     </div>
     <hr>
     <div class="gallery">
       {% for resource in resources %}
-      <a href="{% url 'resource_detail' resource.pk %}">
-        <div class="card">
-          <div class="card-image">
-            <figure class="image is-square">
-              <img src="{{resource.image}}" alt="{{resource.name}}" />
-            </figure>
+        <a href="{% url 'resource_detail' resource.pk %}">
+          <div class="card">
+            <div class="card-image">
+              <figure class="image is-square">
+                <img src="{{resource.image}}" alt="{{resource.name}}" />
+              </figure>
+            </div>
+            <div class="card-header">
+              <h2 class="card-header-title">{{resource.name}}</h2>
+            </div>
           </div>
-          <div class="card-header">
-            <h2 class="card-header-title">{{resource.name}}</h2>
-            
-            
-            
-          </div>
-        </div>
-      </a>
-      <div>
-        
-        {% empty %}
-      <article class="message">
-        <div class="message-header">
-          <p>No Resources Available</p>
-        </div>
-      </article>
+        </a>
       {% endfor %}
     </div>
-</div>
+  </div>
 {% endblock %}
