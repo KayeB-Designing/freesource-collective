@@ -4,7 +4,8 @@
         <img src="{{resource.image}}" alt="{{resource.name}}" />
     </div>
     <div class="detail__container">
-        <a  class="title" href="{{resource.link}}" target="_blank"><h1>{{resource.name}}<span >
+        <a  class="title" href="{{resource.link}}" target="_blank"><h1 class="title">{{resource.name}}
+            <span >
             {% if resource.user == user %}
         <div class="buttons is-pulled-right">
             <a class="button is-info" style="background-color:#378846" href="{% url 'resource_update' resource.pk %}">
