@@ -161,19 +161,22 @@
     {% else %}
         <div class="detail__about">
             {% for comment in resource.comments.all %}
-        <div>
-            <div>
-                <h3  class="title is-4">{{comment.authorID}}</h3>
-                <span>{{comment.created_at}}</span>
+            <div class="gallery">
+                <div class="card">
+                    <div class="card-content">
+                        <div>
+                            <h3 class="title">{{comment.authorID}} <span class="is-pulled-right subtitle" style="color:#378846">{{comment.created_at}}</span></h3>
+                            
+                        </div>
+                        <div style="color:#02425d">
+                            {{comment.body}}
+                        </div>
+                    </div>
+                </div>
+                
             </div>
-            <div>
-                {{comment.body}}
-            </div>
-        </div>
-        {% empty %}
-        <p>
-            No comments available.
-        </p>
+            <br>
+            <br>
         {% endfor %}
         </div>
     {% endif %}
