@@ -12,6 +12,7 @@ django-on-heroku = "*"
 python-dotenv = "*"
 sqlparse = "*"
 whitenoise = "*"
+django-heroku = "*"
 
 [dev-packages]
 
