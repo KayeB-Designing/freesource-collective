@@ -1,0 +1,1 @@
+web: gunicorn freesource_collective_project.wsgi

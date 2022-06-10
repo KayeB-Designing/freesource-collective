@@ -31,9 +31,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = SECRET_KEY
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [*]
 
 JET_THEMES = [
     {
@@ -78,11 +78,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'flc_main_app',
-   
-    # 'jet.dashboard',
-    # 'tailwind',
-    # 'flc_main_app_theme',
-    # 'django_browser_reload',
 ]
 
 MIDDLEWARE = [
@@ -166,7 +161,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
 # STATIC_URL = 'static/'
-STATIC_URL = '/static/'
+STATIC_URL = 'static/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR,'flc_main_app/static')]
 
 # Default primary key field type
@@ -182,3 +177,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/about/'
+
+import django_heroku
+django_heroku.settings(locals())
