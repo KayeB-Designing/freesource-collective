@@ -5,6 +5,13 @@ name = "pypi"
 
 [packages]
 django = "*"
+psycopg2-binary = "*"
+gunicorn = "*"
+django-jet-reboot = "*"
+django-on-heroku = "*"
+python-dotenv = "*"
+sqlparse = "*"
+whitenoise = "*"
 
 [dev-packages]
 
