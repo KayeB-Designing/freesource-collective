@@ -49,7 +49,7 @@ p {
     top: 0;
     width: 100%;
     height: 500px;
-    background-color: #fd3a21;
+    background-color: #ffffff;
     overflow: hidden;
 }
   
@@ -84,8 +84,17 @@ img {
 .white {
     color:#ffffff;
 }
-
+.green {
+    color:#378846;
+}
 hr {
     background-color:#378846;
     height: 5px;
+}
+
+.headerimg {
+    width: 100%;
+    height: 150px;
+    background-color: #ffffff;
+    overflow: hidden;
 }
