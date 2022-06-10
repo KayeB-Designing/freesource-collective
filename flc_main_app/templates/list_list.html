@@ -4,11 +4,7 @@
 <h1 class="title pt-5">Resource Lists <span class="is-pulled-right"><a class="button is-info" style="background-color:#378846;" href="{% url 'list_create' %}">New List</a></span></h1>
 <hr>
 <div>
-  <div>
-    <h3 class="subtitle"><span><i class="fas fa-check-circle" style="color:#f17501"></i> Favorites</span></h3>
-  </div>
-
-  <br>
+  
   <div class="gallery">
     {% for list in lists %}
       <a href="{% url 'list_detail' list.pk %}">
