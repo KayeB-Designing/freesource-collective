@@ -13,6 +13,7 @@ python-dotenv = "*"
 sqlparse = "*"
 whitenoise = "*"
 django-heroku = "*"
+feedparser = "*"
 
 [dev-packages]
 
