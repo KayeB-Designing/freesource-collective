@@ -11,136 +11,20 @@
   <br>
   <div class="gallery">
     {% for list in lists %}
-    {% if list.fav_list == True %}
-    <a href="{% url 'list_detail' list.pk %}">
-      <div class="card">
-        <div class="card-image">
-          <figure class="image is-square">
-            <img src="{{list.image}}" alt="{{list.name}}" />
-          </figure>
+      <a href="{% url 'list_detail' list.pk %}">
+        <div class="card">
+          <div class="card-image">
+            <figure class="image is-square">
+              <img src="{{list.image}}" alt="{{list.name}}" />
+            </figure>
+          </div>
+          <div class="card-header">
+            <h2 class="card-header-title" style="color:#378846">
+              <span>{{list.name}}</span>
+            </h2>
+          </div>
         </div>
-        <div class="card-header">
-          <h2 class="card-header-title">{{list.name}}</h2>
-        </div>
-      </div>
-    </a>
-    {% endif %}
-    {% endfor %}
-  </div>
-  <hr>
-  <div>
-    <h3 class="subtitle"><span><i class="fas fa-check-circle" style="color:#f17501"></i> General Personal Developement</span></h3>
-  </div>
-  <br>
-  <div class="gallery">
-    {% for list in lists %}
-    {% if list.general_pers_dev == True %}
-    <a href="{% url 'list_detail' list.pk %}">
-      <div class="card">
-        <div class="card-image">
-          <figure class="image is-square">
-            <img src="{{list.image}}" alt="{{list.name}}" />
-          </figure>
-        </div>
-        <div class="card-header">
-          <h2 class="card-header-title">{{list.name}}</h2>
-        </div>
-      </div>
-    </a>
-    {% endif %}
-    {% endfor %}
-  </div>
-  <hr>
-  <div>
-    <h3 class="subtitle"><span><i class="fas fa-check-circle" style="color:#f17501"></i> Habit Building</span></h3>
-  </div>
-  <br>
-  <div class="gallery">
-    {% for list in lists %}
-    {% if list.habit_building == True %}
-    <a href="{% url 'list_detail' list.pk %}">
-      <div class="card">
-        <div class="card-image">
-          <figure class="image is-square">
-            <img src="{{list.image}}" alt="{{list.name}}" />
-          </figure>
-        </div>
-        <div class="card-header">
-          <h2 class="card-header-title">{{list.name}}</h2>
-        </div>
-      </div>
-    </a>
-    {% endif %}
-    {% endfor %}
-  </div>
-  <hr>
-  <div>
-    <h3 class="subtitle"><span><i class="fas fa-check-circle" style="color:#f17501"></i> Goal Setting</span></h3>
-  </div>
-
-  <br>
-  <div class="gallery">
-    {% for list in lists %}
-    {% if list.goal_setting == True %}
-    <a href="{% url 'list_detail' list.pk %}">
-      <div class="card">
-        <div class="card-image">
-          <figure class="image is-square">
-            <img src="{{list.image}}" alt="{{list.name}}" />
-          </figure>
-        </div>
-        <div class="card-header">
-          <h2 class="card-header-title">{{list.name}}</h2>
-        </div>
-      </div>
-    </a>
-    {% endif %}
-    {% endfor %}
-  </div>
-  <hr>
-  <div>
-    <h3 class="subtitle"><span><i class="fas fa-check-circle" style="color:#f17501"></i> Time Management</span></h3>
-  </div>
-  <br>
-  <div class="gallery">
-    {% for list in lists %}
-    {% if list.time_management == True %}
-    <a href="{% url 'list_detail' list.pk %}">
-      <div class="card">
-        <div class="card-image">
-          <figure class="image is-square">
-            <img src="{{list.image}}" alt="{{list.name}}" />
-          </figure>
-        </div>
-        <div class="card-header">
-          <h2 class="card-header-title">{{list.name}}</h2>
-        </div>
-      </div>
-    </a>
-    {% endif %}
-    {% endfor %}
-  </div>
-  <hr>
-  <div>
-    <h3 class="subtitle"><span><i class="fas fa-check-circle" style="color:#f17501"></i> Growth Mindset</span></h3>
-  </div>
-  <br>
-  <div class="gallery">
-    {% for list in lists %}
-    {% if list.growth_mindset == True %}
-    <a href="{% url 'list_detail' list.pk %}">
-      <div class="card">
-        <div class="card-image">
-          <figure class="image is-square">
-            <img src="{{list.image}}" alt="{{list.name}}" />
-          </figure>
-        </div>
-        <div class="card-header">
-          <h2 class="card-header-title">{{list.name}}</h2>
-        </div>
-      </div>
-    </a>
-    {% endif %}
+      </a>
     {% endfor %}
   </div>
 </div>

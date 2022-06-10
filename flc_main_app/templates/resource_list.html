@@ -4,23 +4,6 @@
   <h1 class="title pt-5">Resources<span class="is-pulled-right"><a class="button is-info" style="background-color:#378846;" href="{% url 'resource_create' %}">New Resource</a></span></h1>
   <hr>
   <div>
-    <div class="gallery">
-      {% for resource in resources %}
-        <a href="{% url 'resource_detail' resource.pk %}">
-          <div class="card">
-            <div class="card-image">
-              <figure class="image is-square">
-                <img src="{{resource.image}}" alt="{{resource.name}}" />
-              </figure>
-            </div>
-            <div class="card-header">
-              <h2 class="card-header-title" style="color:#378846">
-                <span>{{resource.name}}</span>
-              </h2>
-            </div>
-          </div>
-        </a>
-      {% endfor %}
-    </div>
+    
   </div>
 {% endblock %}
