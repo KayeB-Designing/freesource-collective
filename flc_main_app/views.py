@@ -11,7 +11,10 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
 from django.contrib.auth.models import User
+from django.shortcuts import redirect
 
+def view_404(request, exception=None):
+    return redirect('/')
 
 class Home(TemplateView):
 

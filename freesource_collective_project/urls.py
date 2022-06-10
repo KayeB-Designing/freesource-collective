@@ -23,3 +23,5 @@ urlpatterns = [
     path('', include('flc_main_app.urls')),
     path('accounts/', include('django.contrib.auth.urls')),
 ]
+
+handler404 = 'flc_main_app.views.view_404'
