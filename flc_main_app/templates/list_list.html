@@ -1,7 +1,9 @@
 {% extends 'base.html' %}
 {% block title %}Resource Lists{% endblock  %}
 {% block content %}
+{% if user.is_authenticated %}
 <h1 class="title pt-5">{{user.name}}'s Resource Lists <span class="is-pulled-right"><a class="button is-info" style="background-color:#378846;" href="{% url 'list_create' %}">New List</a></span></h1>
+{% endif %}
 <hr>
 <div>
   
