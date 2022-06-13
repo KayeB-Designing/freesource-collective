@@ -1,4 +1,5 @@
 {% extends 'base.html' %} 
+{% block title %}{{resource.name}}{% endblock  %}
 {% block content %}
     <div class="detail__img">
         <img src="{{resource.image}}" alt="{{resource.name}}" />
