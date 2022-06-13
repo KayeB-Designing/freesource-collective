@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% block title %}Resources{% endblock  %}
 {% block content %}
-  <h1 class="title pt-5">{{user.name}}'s Resources<span class="is-pulled-right"><a class="button is-info" style="background-color:#378846;" href="{% url 'resource_create' %}">New Resource</a></span></h1>
+  <h1 class="title pt-5">{{user.username}}'s Resources<span class="is-pulled-right"><a class="button is-info" style="background-color:#378846;" href="{% url 'resource_create' %}">New Resource</a></span></h1>
   <hr>
   <div>
     
