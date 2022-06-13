@@ -1,12 +1,10 @@
 {% extends 'base.html' %} 
 {% block title %}New List{% endblock  %}
 {% block content %}
-<h1 class="title pt-5">Add a List</h1>
-
-<form method="post">
-  {% csrf_token %} 
-  {{form.as_p}} 
-  <input type="submit" value="Submit" />
-</form>
-
+  <h1 class="title pt-5">New List</h1>
+  <form method="post">
+    {% csrf_token %} 
+    {{form.as_p}} 
+    <input type="submit" value="Submit" />
+  </form>
 {% endblock %}

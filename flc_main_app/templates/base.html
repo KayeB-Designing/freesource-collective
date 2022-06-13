@@ -1,6 +1,6 @@
 {% load static %}
 <!DOCTYPE html>
-<html lang="en">
+    <html lang="en">
     <head>
         <meta charset="UTF-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -22,15 +22,14 @@
                     <h2 class="title" style="font-size: 6em;"><span class="green" style="font-weight:bolder;">Free Resources</span> for life!!!</h2>
                 </span>
             </div>
-
         </div>
         <nav class="navbar is-white" style="color: #02425d; border: 1px solid #02425d;" role="navigation" aria-label="main navigation">
             <div class="navbar-brand">
                 <a class="navbar-item" style="color:#f17501; font-weight: bold;" href="/">Freesource Library Collective</a>
                 <a style="color:#02425d" role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
-                    <span aria-hidden="true"></span>
-                    <span aria-hidden="true"></span>
-                    <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
                 </a>
             </div>
             <div class="navbar-menu navbar-end">
@@ -40,32 +39,30 @@
                 <a class="navbar-item" style="color:#02425d" href="/resources">Resources</a>
             </div>
             {% if user.is_authenticated %}
-                    <div class="navbar-menu navbar-end">
-                        <a class="navbar-item" style="color:#02425d" href="{% url 'list_list' %}">Resource Lists</a>
-                    </div>
-                    <div class="navbar-menu navbar-end">
-                        <span class="navbar-item" style="color:#378846; font-weight: bolder;">Welcome:<span style="color:#f17501; font-weight: bold;">{{user.username}}</span>
-                        {% if user.is_superuser %}
-                                <a class="navbar-item" style="color:#02425d" href="https://freesource-library-collective.herokuapp.com/admin/">Admin</a>
-                        {% endif %}
-                        <a class="navbar-item" style="color:#02425d" href="{% url 'logout' %}">Logout</a>
-                    </div>
-                {% else %}
-                    <div class="navbar-menu navbar-end">
-                        <a class="navbar-item" style="color:#02425d" href="{% url 'login' %}">Log In</a>
-                    </div>
-                    <div class="navbar-menu navbar-end">
-                        <a class="navbar-item" style="color:#02425d" href="{% url 'register' %}">Register</a>
-                    </div>
-                {% endif %}
-                
+                <div class="navbar-menu navbar-end">
+                    <a class="navbar-item" style="color:#02425d" href="{% url 'list_list' %}">Resource Lists</a>
+                </div>
+                <div class="navbar-menu navbar-end">
+                    <span class="navbar-item" style="color:#378846; font-weight: bolder;">Welcome:<span style="color:#f17501; font-weight: bold;">{{user.username}}</span>
+                    {% if user.is_superuser %}
+                        <a class="navbar-item" style="color:#02425d" href="https://freesource-library-collective.herokuapp.com/admin/">Admin</a>
+                    {% endif %}
+                    <a class="navbar-item" style="color:#02425d" href="{% url 'logout' %}">Logout</a>
+                </div>
+            {% else %}
+                <div class="navbar-menu navbar-end">
+                    <a class="navbar-item" style="color:#02425d" href="{% url 'login' %}">Log In</a>
+                </div>
+                <div class="navbar-menu navbar-end">
+                    <a class="navbar-item" style="color:#02425d" href="{% url 'register' %}">Register</a>
+                </div>
+            {% endif %}
         </nav>
         <div class="container">
-
-            {% block content %}{% endblock %}
-
+            {% block content %}
+            {% endblock %}
         </div>
-      </div>
-    </div>
-  </body>
+        </div>
+        </div>
+    </body>
 </html>
